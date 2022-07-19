@@ -24,6 +24,4 @@ app.use(
   })
 );
 
-console;
-
 const router = require('./router/index')(app, fs); // bodyParser 아래 위치

@@ -5,7 +5,7 @@ const session = require('express-session');
 const fs = require('fs');
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+app.set('view engine', 'html'); // ejs 확장자 대신
 app.engine('html', require('ejs').renderFile);
 
 const server = app.listen(3000, function () {

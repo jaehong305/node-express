@@ -5,7 +5,7 @@ const session = require('express-session');
 const fs = require('fs');
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'html'); // ejs 확장자 대신
+app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 
 const server = app.listen(3000, function () {
@@ -18,9 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(
   session({
-    secret: '@#@MYSIGN', // 쿠키 변조 방지 sign값
-    resave: false, // 변경되지 않으면 세션 저장 X
-    saveUninitialized: true, // 새로 생겼지만 변경되지 않은 세션 저장
+    secret: '@#@MYSIGN',
+    resave: false,
+    saveUninitialized: true,
   })
 );
 

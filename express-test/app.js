@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const logger = require('morgan'); // 요청과 응답에 대한 정보 콘솔에 기록
-const engine = require('ejs').renderFile;
+const engine = require('ejs-locals');
 const session = require('express-session'); // express프레임워크에서 세션관리 미들웨어, 사용자별로 req.session 객체에 유지, 저장(DB설정가능), 쿠키 발송 기능등
 const bodyParser = require('body-parser'); // 요청 body 해석 req.body 객체로 만듦
 const cookieParser = require('cookie-parser'); // 쿠키해석 => req.cookies 객체로 만듦 => express-session 모듈이 직접 쿠키에 접근하므로 express-session에 쓸때에는 필요x
@@ -11,7 +11,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html'); // ejs 확장자 대신 html
-app.engine('html', engine);
+app.engine('html', engine); // ejs-locals로 partial등 layout 기능들 사용
 
 app.use(logger('dev'));
 // app.use(express.json({ limit: '50mb' })); // express4.16.0 이상 부터는 body-parser 대신 express에서 제공

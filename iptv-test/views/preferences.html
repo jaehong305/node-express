@@ -1,0 +1,80 @@
+<link rel="stylesheet" type="text/css" media="screen" href="/css/pages/preferences.css" />
+
+<!-- class='well' 흰색바탕 div 박스 생성 -->
+<div class="well">
+  <!-- overflow:hidden pull-right시 float:right!Important 적용되어 부모가 감싸주기위해 적용 -->
+  <div style="overflow: hidden; padding-bottom: 10px">
+    <button id="save-btn" class="btn btn-default pull-right" style="width: 150px" title="저장">
+      <!-- hidden-xs 반응형 xs사이즈에서 아이콘만 남음 -->
+      <i class="fa fa-print"></i> <span class="hidden-xs">저장</span>
+    </button>
+  </div>
+  <div id="widget-grid">
+    <div class="row">
+      <form
+        id="content-form"
+        name="content-form"
+        class=""
+        novalidate="novalidate"
+        method="post"
+        action="/preferences/savestb"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="value" value="" readonly />
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div
+            class="jarviswidget dash-widget jarviswidget-color-darken"
+            id="wid-id-1"
+            data-widget-colorbutton="false"
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            style="margin-bottom: 15px"
+          >
+            <header>
+              <span class="widget-icon"> <i class="fa fa-cog"></i> </span>
+              <h2>로고설정</h2>
+            </header>
+            <div class="widget-content">
+              <div class="setting-item">
+                <!-- <div class="title">
+                  <p class="title-text"></p>
+                </div> -->
+                <div class="inline-group">
+                  <!-- preferences.css 스타일 적용 -->
+                  <div class="img-wrap">
+                    <img src="/img/logo-white.png" style="display: inline-block; width: 139px; height: 69px" />
+                  </div>
+                  <span style="display: inline-block; font-weight: bold; color: red; margin: 10px 0 0 20px"
+                    >최적화 Size : 100px (높이)<br />Format : PNG, JPG</span
+                  >
+                  <span
+                    class="btn file-btn"
+                    style="margin: 5px 0 0 9px; display: block; width: 151px; background: #404040; color: white"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <span>파일변경...</span>
+                  </span>
+                  <input
+                    type="file"
+                    id="logofile"
+                    name="logofile"
+                    class="imgfile"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  let logo = '';
+  $('#logofile').parent().find('.img-wrap img').attr('src', logo);
+</script>
